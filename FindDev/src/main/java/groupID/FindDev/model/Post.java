@@ -1,21 +1,25 @@
 package groupID.FindDev.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name ="Post")
-public class Post {
+public class Post extends AuditModel {
     @Id
     @GeneratedValue
     private Long postId;
 
     private String postName;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "userId", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE )
@@ -23,7 +27,6 @@ public class Post {
 
     private String content;
     private String title;
-    private Timestamp timeCreated;
 
     public Long getPostId() {
         return postId;
@@ -65,11 +68,4 @@ public class Post {
         this.title = title;
     }
 
-    public Timestamp getTimeCreated() {
-        return timeCreated;
-    }
-
-    public void setTimeCreated(Timestamp timeCreated) {
-        this.timeCreated = timeCreated;
-    }
 }

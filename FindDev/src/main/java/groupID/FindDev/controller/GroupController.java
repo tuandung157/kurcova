@@ -11,26 +11,27 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+@RestController
 public class GroupController {
     @Autowired
     private GroupRepository groupRepository;
 
-    @GetMapping("/group")
+    @GetMapping("/groups")
     public Page<Group> getMess(Pageable pageable){
         return groupRepository.findAll(pageable);
     }
 
-    @GetMapping("/group/{groupId}")
+    @GetMapping("/groups/{groupId}")
     public Optional<Group> getGroupById(@PathVariable Long groupId){
         return groupRepository.findById(groupId);
     }
 
-    @PostMapping("/group")
+    @PostMapping("/groups")
     public Group createGroup(@Valid @RequestBody Group group){
         return groupRepository.save(group);
     }
 
-    @PutMapping("/group/{groupId}/user/{userId}")
+    @PutMapping("/groups/{groupId}/users/{userId}")
     public Group updateUser(@PathVariable Long groupId, @Valid @RequestBody Group groupRequest){
         return groupRepository.findById(groupId)
                 .map(group -> {

@@ -1,5 +1,7 @@
 package groupID.FindDev.model;
 
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 

@@ -2,6 +2,7 @@ package groupID.FindDev.model;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Groups")
-public class Group {
+public class Group extends AuditModel {
     @Id
     private Long groupId ;
     private String groupName;
@@ -21,7 +22,6 @@ public class Group {
     @OneToMany(mappedBy = "group")
     Set<UserGroup>  userGroup;
 
-    private Timestamp createdAt;
 
     public Long getGroupId() {
         return groupId;
@@ -71,11 +71,4 @@ public class Group {
         this.userGroup = userGroup;
     }
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
 }

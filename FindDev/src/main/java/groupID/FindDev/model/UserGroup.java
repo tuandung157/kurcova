@@ -1,11 +1,12 @@
 package groupID.FindDev.model;
 
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 @Entity
-public class UserGroup implements Serializable {
+public class UserGroup extends AuditModel{
 
     @Id @GeneratedValue
     Long id;
@@ -18,7 +19,6 @@ public class UserGroup implements Serializable {
     @JoinColumn(name = "group_id")
     User group;
 
-    Timestamp createdAt;
     Long Grade;
 
     public Long getId() {
@@ -45,13 +45,6 @@ public class UserGroup implements Serializable {
         this.group = group;
     }
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public Long getGrade() {
         return Grade;

@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:10080")
 public class ProjectController {
     @Autowired
     private ProjectRepository projectRepository;
 
     @Autowired
     private GroupRepository groupRepository;
-    @GetMapping("/project")
+    @GetMapping("/projects")
     public Page<Project> getProject(Pageable pageable){
         return projectRepository.findAll(pageable);
     }
 
-    @GetMapping("/project/{projectId}")
+    @GetMapping("/projects/{projectId}")
     public Optional<Project> getProjectById(@PathVariable Long ProjectId){
         return projectRepository.findById(ProjectId);
     }

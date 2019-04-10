@@ -12,16 +12,24 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:10080")
 public class UserController {
     private Date date = new Date();
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users")
-    public Page<User> getUser(Pageable pageable){
+    @GetMapping("/users/page")
+    public Page<User> getUsersPage(Pageable pageable){
         return userRepository.findAll(pageable);
+    }
+
+    @GetMapping("/users")
+    public List<User> getUsers(){
+        return userRepository.findAll();
     }
 
     @GetMapping("/users/{userId}")

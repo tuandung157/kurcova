@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.bind.annotation.RestController;
 
 @Entity
 @Table(name = "users")

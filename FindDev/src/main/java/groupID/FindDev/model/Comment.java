@@ -3,6 +3,7 @@ package groupID.FindDev.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -24,7 +25,6 @@ public class Comment {
     private Post postId;
 
     private String content;
-    private Timestamp timeCreated;
 
     public long getCommentId() {
         return commentId;
@@ -48,14 +48,6 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Timestamp getTimeCreated() {
-        return timeCreated;
-    }
-
-    public void setTimeCreated(Timestamp timeCreated) {
-        this.timeCreated = timeCreated;
     }
 
     public Post getPostId() {

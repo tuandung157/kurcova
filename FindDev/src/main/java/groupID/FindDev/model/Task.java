@@ -2,13 +2,14 @@ package groupID.FindDev.model;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name ="Task")
-public class Task {
+public class Task extends AuditModel {
     @Id
     private Long taskId;
 
@@ -19,7 +20,6 @@ public class Task {
     private Project projectid;
 
     private String content;
-    private Timestamp timeCreated;
 
     public Long getTaskId() {
         return taskId;
@@ -53,11 +53,4 @@ public class Task {
         this.content = content;
     }
 
-    public Timestamp getTimeCreated() {
-        return timeCreated;
-    }
-
-    public void setTimeCreated(Timestamp timeCreated) {
-        this.timeCreated = timeCreated;
-    }
 }

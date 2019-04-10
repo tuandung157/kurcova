@@ -17,6 +17,8 @@ import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.Optional;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:10080")
 public class CommentController {
     @Autowired
     private CommentRepository commentRepository;
@@ -36,6 +38,7 @@ public class CommentController {
     public Optional<Comment> getCommandById(@PathVariable Long commandId){
         return commentRepository.findById(commandId);
     }
+
     @PostMapping("/post/{postId}/{userId}")
     public Comment addComment(@PathVariable Long postId,
                            @PathVariable Long userId,
