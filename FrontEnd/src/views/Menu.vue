@@ -17,9 +17,13 @@
       <li v-if="authenticated">
         {{ this.$session.get('user').username }}  
       </li>
+      <li v-else="authenticated">
+        <router-link :to="{name: 'addUser'}">Register</router-link>
+      </li>
       <li>
         <a v-if="authenticated" v-on:click.stop.prevent="logout()" href>Logout</a>
         <a v-else v-on:click.stop.prevent="login()" href>Login</a>
+
         <!-- <Login v-else /> -->
       </li>
     </ul>

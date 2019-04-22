@@ -5,7 +5,7 @@
     <input type="text" placeholder="telephone" v-model="userData.telephone" />
     <input type="text" placeholder="text" v-model="userData.text" />
     <input type="text" placeholder="userName" v-model="userData.username" />
-    <input type="button"  v-on:click="addUser"/>
+    <input type="button" value="addUser- please dont click"  v-on:click="addUser"/>
   </form>
   
 </template>

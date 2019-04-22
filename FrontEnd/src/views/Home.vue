@@ -10,26 +10,19 @@
         <AllPost isAdmin />
       </div>
     </div>
-
+    <a>AddComment</a>
     <div class="row">
       <div class="cell">
         <AddComment/>
       </div>
     </div>
-    
-
-    <div class="row">
-      <div class="cell">
-        <AddUser/>
-      </div>
-    </div>
-
+    <a>AllProject</a>
     <div class="row">
       <div class="cell">
         <AllProject/>
       </div>
     </div>
-
+    <a>AllTask</a>
     <div class="row">
       <div class="cell">
         <AllTask/>
@@ -47,7 +40,6 @@ import AllPost from "@/views/posts/AllPost.vue";
 import AddPost from "@/views/posts/AddPost.vue";
 import AllComment from "@/views/comments/AllComment.vue";
 import AddComment from "@/views/comments/AddComment.vue";
-import AddUser from "@/views/user/addUser.vue";
 import AllProject from "@/views/projects/AllProject.vue";
 import AllTask from "@/views/tasks/AllTask.vue";
 export default {
@@ -61,7 +53,6 @@ export default {
   AddPost,
   AllComment,
   AddComment,
-  AddUser,
   AllProject,
   AllTask
   }, mounted(){

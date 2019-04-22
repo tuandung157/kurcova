@@ -39,7 +39,6 @@ export default {
             this.post = response.data;
           });
   }
- 
 };
 
 </script>
