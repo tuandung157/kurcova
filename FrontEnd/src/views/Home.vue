@@ -1,9 +1,9 @@
 <template>
   <div class="grid home">
     <div class="row flex-justify-center">
-      <div class="cell-2">
+<!--       <div class="cell-2">
         <img alt="Vue logo" src="../assets/logo.png" />
-      </div>
+      </div> -->
     </div>
     <div class="row">
       <div class="cell">
