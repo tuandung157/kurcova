@@ -1,13 +1,14 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Login from  "./views/login.vue"
+import Login from  "./views/login.vue";
+
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: "/",
+      path: "/home",
       name: "home",
       component: Home
     },
@@ -58,7 +59,7 @@ export default new Router({
     },
     {
       //register
-      path: "/posts/add",
+      path: "/user/add",
       name: "addUser",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -68,7 +69,7 @@ export default new Router({
       props: true
     },
     {
-      path: "/posts/detail/:id",
+      path: "/posts/:id",
       name: "postDetail",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -85,6 +86,16 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import("./views/messages/GetConversation.vue")
+    },
+        {
+      path: "/posts/detail/:post_id/project/:project_id",
+      name: "project",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import("./views/projects/AllProject.vue"),
+      props:true
     }
   ]
 });

@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         login: function() {
-            var self = this
+            var self = this;
             const axios = require('axios');
                  // Make a request for a user with a given ID
                  axios.post('http://localhost:8080/users/login',this.input)

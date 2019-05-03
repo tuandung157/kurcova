@@ -10,7 +10,7 @@
 import SinglePostView from '@/components/SinglePostView.vue';
 import AllComment from '@/views/comments/AllComment.vue'
 export default {
-  name: "PostDetail",
+  name: "postDetail",
   data() {
     return {      
       postId : null,
@@ -22,20 +22,17 @@ export default {
     AllComment
   },   
   props: {
-
+    id : Number
   },
   methods: {
 
   },
   mounted(){
         const axios = require('axios');
-        this.postId = Number.parseInt(this.$route.params.id, 10)
-
+        this.postId = Number.parseInt(this.id);
         // Make a request for a user with a given ID
         axios.get('http://localhost:8080/posts/'+this.postId)
         .then(response => {
-            // handle success
-            // console.log(response.data);
             this.post = response.data;
           });
   }

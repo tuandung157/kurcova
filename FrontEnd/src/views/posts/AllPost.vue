@@ -7,16 +7,21 @@
               <div class="row"  v-for="post in posts" v-if="isAdmin">
                 <div class="cell colspan-10">
                   <SinglePostView :postData="post"/>
+                  <router-link :to="{name: 'postDetail', params: { id: post.postId }}">see more post</router-link>
+                  <br/>
+                  <br/>
+                  
                 </div>
                 <div class="cell colspan-2 d-flex flex-align-center">
                     <router-link :to="{name: 'editPost', params: { userId : 1, postData: post}}" class="p-5">Edit</router-link>
                     <router-link :to="{name: 'deletePost', params: { userId : 1, postId: post.postId}}" class="p-5">Delete</router-link>
+                    
                 </div>
               </div>
 
-              <div class="row"  v-for="post1 in posts" v-else>
+              <div class="row"  v-for="postElement in posts" v-else>
                 <div class="cell colspan-12">
-                  <SinglePostView :postData="post1"/>
+                  <SinglePostView :postData="postElement"/>
                 </div>
               </div>
             </div>  

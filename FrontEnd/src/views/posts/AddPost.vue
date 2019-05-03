@@ -2,7 +2,7 @@
   <form >
     <div class="form-group">
         <label>Post name</label>
-        <input type="text" placeholder="Title" v-model="postData.postName" />
+        <input type="text" placeholder="post Name" v-model="postData.postName" />
     </div>
     <div class="form-group">
         <label>Post title</label>
@@ -17,7 +17,6 @@
     </div>
     <!-- <input type="text" placeholder="UserId" v-model="userId" /> -->
   </form>
-  
 </template>
 
 <script>
