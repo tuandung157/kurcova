@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:10080")
+@CrossOrigin
 public class UserController {
     private Date date = new Date();
     @Autowired
@@ -63,5 +63,39 @@ public class UserController {
                     userRepository.delete(user);
                     return ResponseEntity.ok().build();
                 }).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + userId));
+    }
+
+
+    @PostMapping("/users/login")
+    @CrossOrigin
+    public Object userLogin(@RequestBody LoginRequest request) {
+        List<User> checkUser = userRepository.findByUsername(request.username);
+        for (int i = 0; i < checkUser.size(); i++) {
+            if (checkUser.get(i).getUsername().equals(request.username) && checkUser.get(i).getPassword().equals(request.password))  return checkUser.get(i);
+        }return false;
+    }
+}
+
+class LoginRequest {
+    String username;
+    String password;
+
+    public LoginRequest() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

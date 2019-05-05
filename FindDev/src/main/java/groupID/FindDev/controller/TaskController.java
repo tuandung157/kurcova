@@ -11,21 +11,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
     @Autowired
     private ProjectRepository projectRepository;
-    @GetMapping("/task")
-    public Page<Task> getTask(Pageable pageable){
+
+    @GetMapping("/tasks/page")
+    public Page<Task> getTasks(Pageable pageable){
         return taskRepository.findAll(pageable);
     }
 
-    @GetMapping("/task/{taskId}")
+    @GetMapping("/tasks")
+    public List<Task> getTasks(){
+        return taskRepository.findAll();
+    }
+
+    @GetMapping("/tasks/{taskId}")
     public Optional<Task> getMessById(@PathVariable Long taskId){
         return taskRepository.findById(taskId);
     }

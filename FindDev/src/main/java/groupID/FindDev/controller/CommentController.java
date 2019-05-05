@@ -1,6 +1,7 @@
 package groupID.FindDev.controller;
 
 import groupID.FindDev.model.Comment;
+import groupID.FindDev.model.Post;
 import groupID.FindDev.model.User;
 import groupID.FindDev.repository.CommentRepository;
 import groupID.FindDev.repository.PostRepository;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.Column;
 import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:10080")
+@CrossOrigin
 public class CommentController {
     @Autowired
     private CommentRepository commentRepository;
@@ -29,17 +32,25 @@ public class CommentController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/comment")
-    public Page<Comment> getComment(Pageable pageable){
+    @GetMapping("/comments/page")
+    public Page<Comment> getCommentPage(Pageable pageable){
         return commentRepository.findAll(pageable);
     }
 
-    @GetMapping("/comment/{commandId}")
-    public Optional<Comment> getCommandById(@PathVariable Long commandId){
-        return commentRepository.findById(commandId);
+    @GetMapping("/comments")
+    public List<Comment> getComment(){
+        return commentRepository.findAll();
+    }
+    @GetMapping("/comments/post/{postId}")
+    public List<Comment> getCommentsByPostId(@PathVariable Long postId){
+        Optional<Post> post =postRepository.findById(postId);
+        if(post.isPresent()){
+            return commentRepository.findByPostId(post.get());
+        }
+        return new ArrayList<>();
     }
 
-    @PostMapping("/post/{postId}/{userId}")
+    @PostMapping("/comments/{postId}/{userId}")
     public Comment addComment(@PathVariable Long postId,
                            @PathVariable Long userId,
                            @Valid @RequestBody Comment comment){
@@ -55,7 +66,7 @@ public class CommentController {
                 } ).orElseThrow(() -> new ResourceNotFoundException("post not found with id " + postId));
     }
 
-    @PutMapping("/comment/{commentId}")
+    @PutMapping("/comments/{commentId}")
     public Comment updateComment(@PathVariable Long commentId, @Valid @RequestBody Comment commentRequest){
         return commentRepository.findById(commentId)
                 .map(comment -> {
@@ -64,7 +75,7 @@ public class CommentController {
                 }).orElseThrow(() -> new ResourceNotFoundException("comment not found with id " + commentId));
     }
 
-    @DeleteMapping("/comment/{commentId}")
+    @DeleteMapping("/comments/{commentId}")
     public ResponseEntity<?> deleteComment(@PathVariable Long commentId){
         return commentRepository.findById(commentId)
                 .map(comment -> {

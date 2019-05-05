@@ -11,19 +11,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:10080")
+@CrossOrigin
 public class ProjectController {
     @Autowired
     private ProjectRepository projectRepository;
 
     @Autowired
     private GroupRepository groupRepository;
-    @GetMapping("/projects")
-    public Page<Project> getProject(Pageable pageable){
+
+    @GetMapping("/projects/page")
+    public Page<Project> getProjectPage(Pageable pageable){
         return projectRepository.findAll(pageable);
+    }
+
+    @GetMapping("/projects")
+    public List<Project> getProject(){
+        return projectRepository.findAll();
     }
 
     @GetMapping("/projects/{projectId}")
@@ -31,7 +38,7 @@ public class ProjectController {
         return projectRepository.findById(ProjectId);
     }
 
-    @PostMapping("/groups/{groupId}&&{userId}")
+    @PostMapping("/projects/{groupId}/{userId}")
     public Project addproject(@PathVariable Long groupId,@PathVariable Long userId,@Valid @RequestBody Project project){
         return groupRepository.findById(groupId)
                 .map(group ->{
@@ -56,7 +63,7 @@ public class ProjectController {
                 }).orElseThrow(() -> new ResourceNotFoundException("project not found with id " + projectId));
     }
 
-    @DeleteMapping("/groups/{groupId}/project/{projectId}")
+    @DeleteMapping("/projects/{groupId}/{projectId}")
     public ResponseEntity<?> deleteProject(@PathVariable Long projectId){
         return projectRepository.findById(projectId)
                 .map(project -> {

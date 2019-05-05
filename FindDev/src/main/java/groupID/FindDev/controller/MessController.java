@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class MessController {
     @Autowired
     private MessRepository messRepository;
@@ -34,21 +35,18 @@ public class MessController {
         return messRepository.findById(messId);
     }
 
-//    @GetMapping("/message/{userId1}/{userId2}")
-//    public List<Mess> getMessById(@PathVariable Long messId){
-//
-//        return messRepository.findAll(new Example<Mess>() {
-//            @Override
-//            public Mess getProbe() {
-//                return null;
-//            }
-//
-//            @Override
-//            public ExampleMatcher getMatcher() {
-//                return null;
-//            }
-//        });
-//    }
+    @GetMapping("/message/{userId1}/{userId2}")
+    public List<Mess> getConversation(@PathVariable Long userId1,@PathVariable Long userId2){
+        Optional<User> user1 = userRepository.findById(userId1);
+        if(!user1.isPresent()) {
+            return null;
+        }
+        Optional<User> user2 = userRepository.findById(userId2);
+        if(!user2.isPresent()) {
+            return null;
+        }
+        return messRepository.findByUserFromAndUserTo(user1.get(),user2.get());
+    }
 
 
     @PostMapping("/message")

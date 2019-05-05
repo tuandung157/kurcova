@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class GroupController {
     @Autowired
     private GroupRepository groupRepository;
