@@ -4,7 +4,7 @@
     <input type="text" placeholder="UserId" v-model="userId" />
     <input type="text" placeholder="content" v-model="postData.content" />
     <input type="text" placeholder="title" v-model="postData.title" />
-    <input type="button"  v-on:click="editPost"/>
+    <input type="button" value="accept" v-on:click="editPost"/>
   </form>
   
 </template>

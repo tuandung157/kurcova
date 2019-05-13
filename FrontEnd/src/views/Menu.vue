@@ -15,7 +15,7 @@
         <router-link :to="{name: 'addPost'}">Add Post</router-link>
       </li>
       <li v-if="authenticated">
-        {{ this.$session.get('user').username }}  
+        <router-link :to="{name:'user', params:{id:this.$session.get('user').userId}}">{{ this.$session.get('user').username }}</router-link>
       </li>
       <li v-else="authenticated">
         <router-link :to="{name: 'addUser'}">Register</router-link>
@@ -50,9 +50,11 @@ export default {
     logout: function() {
       this.$session.destroy();
       this.$router.go();
+      this.$router.push({name: 'home'});
     },
     login: function() {
       this.$router.push({name: 'login'});
+      // console.log(this.$session.get('user'));
     }
   }
  

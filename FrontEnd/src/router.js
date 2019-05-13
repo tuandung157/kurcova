@@ -87,7 +87,7 @@ export default new Router({
       component: () =>
         import("./views/messages/GetConversation.vue")
     },
-        {
+    {
       path: "/posts/detail/:post_id/project/:project_id",
       name: "project",
       // route level code-splitting
@@ -96,6 +96,16 @@ export default new Router({
       component: () =>
         import("./views/projects/AllProject.vue"),
       props:true
-    }
+    },
+    {
+      path: "/user/:id",
+      name: "user",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import("./views/user/getUser.vue"),
+      props:true
+    }    
   ]
 });

@@ -1,5 +1,8 @@
 <template>
+  <div>
   <p>{{ commentData }}</p>
+  </div>
+
 </template>
 
 <script>
@@ -16,7 +19,7 @@ export default {
   props: {
        commentData: Object
   },
-  mounted(){
+  mounted(){ 
 
   }
  
