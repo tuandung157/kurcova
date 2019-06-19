@@ -22,7 +22,7 @@ export default {
   mounted(){
         const axios = require('axios');
         // Make a request for a user with a given ID
-        axios.delete('http://localhost:8080/posts/delete/'+ this.userId + '/' + this.postId)
+        axios.delete('http://localhost:8080/posts/delete/' + this.userId + '/' + this.postId)
         .then(response => {
             // handle success
             console.log(response.data);

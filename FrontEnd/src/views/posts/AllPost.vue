@@ -10,14 +10,10 @@
                   </SinglePostView>
                 <router-link :to="{name: 'postDetail', params: { id: post.postId }}">see more post</router-link>
                   <br/>
-                  <br/>
-                  
                 </div>
                 <div class="cell colspan-2 d-flex flex-align-center"  >
                     <router-link :to="{name: 'editPost', params: { userId : post.userId.userId, postData: post}}" class="p-5">Edit</router-link>
-                    <router-link :to="{name: 'editPost', params: { userId : post.userId.userId, postData: post}}" class="p-5"></router-link>
                     <router-link :to="{name: 'deletePost', params: { userId : post.userId, postId: post.postId}}" class="p-5">Delete</router-link>
-                    
                 </div>
               </div>
 
