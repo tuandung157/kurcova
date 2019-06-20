@@ -13,7 +13,7 @@
                 </div>
                 <div class="cell colspan-2 d-flex flex-align-center"  >
                     <router-link :to="{name: 'editPost', params: { userId : post.userId.userId, postData: post}}" class="p-5">Edit</router-link>
-                    <router-link :to="{name: 'deletePost', params: { userId : post.userId, postId: post.postId}}" class="p-5">Delete</router-link>
+                    <router-link :to="{name: 'deletePost', params: { userId : 1, postId: post.postId}}" class="p-5">Delete</router-link>
                 </div>
               </div>
 
@@ -58,7 +58,7 @@ export default {
             // handle success
             // console.log(response.data);
             this.posts = response.data;
-            console.log(this.$session.getAll().user.userId);
+            // console.log(this.$session.getAll().user.userId);
             
           });
         if(this.$session.getAll().user.userId == 1){
