@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,15 +21,9 @@ public class ProjectController {
 
     @Autowired
     private GroupRepository groupRepository;
-
-    @GetMapping("/projects/page")
-    public Page<Project> getProjectPage(Pageable pageable){
-        return projectRepository.findAll(pageable);
-    }
-
     @GetMapping("/projects")
-    public List<Project> getProject(){
-        return projectRepository.findAll();
+    public Page<Project> getProject(Pageable pageable){
+        return projectRepository.findAll(pageable);
     }
 
     @GetMapping("/projects/{projectId}")

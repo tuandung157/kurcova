@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,18 +21,12 @@ public class TaskController {
 
     @Autowired
     private ProjectRepository projectRepository;
-
-    @GetMapping("/tasks/page")
-    public Page<Task> getTasks(Pageable pageable){
+    @GetMapping("/task")
+    public Page<Task> getTask(Pageable pageable){
         return taskRepository.findAll(pageable);
     }
 
-    @GetMapping("/tasks")
-    public List<Task> getTasks(){
-        return taskRepository.findAll();
-    }
-
-    @GetMapping("/tasks/{taskId}")
+    @GetMapping("/task/{taskId}")
     public Optional<Task> getMessById(@PathVariable Long taskId){
         return taskRepository.findById(taskId);
     }

@@ -37,8 +37,8 @@
 export default {
   name: "Menu",
   data () {
-  	return {
-  	}
+    return {
+    }
   },
   props: {
     authenticated : Boolean

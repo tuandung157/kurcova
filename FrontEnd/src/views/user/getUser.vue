@@ -8,7 +8,6 @@
 
 <script>
 import SingleUserView from '@/components/SingleUserView.vue';
-
 // @ is an alias to /src
 export default {
   name: "getUser",
@@ -26,7 +25,6 @@ export default {
   	userData :Object
   },
   methods: {
-
   },
   mounted(){
         const axios = require('axios');
@@ -39,5 +37,4 @@ export default {
           });
   }
 };
-
 </script>

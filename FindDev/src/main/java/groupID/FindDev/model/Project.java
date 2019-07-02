@@ -1,6 +1,5 @@
 package groupID.FindDev.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,14 +13,11 @@ public class Project extends AuditModel {
     @Id
     private long projectId;
     private String projectName;
-
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE )
     private User userId;
 
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "group_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE )

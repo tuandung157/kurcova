@@ -59,7 +59,6 @@ export default {
             // handle success
             console.log(response.data);
             this.posts = response.data;
-            this.$router.push({name: 'home'});
           });
         }
 

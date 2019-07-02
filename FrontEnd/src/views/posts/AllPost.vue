@@ -45,10 +45,8 @@ export default {
   },   
   props: {
     isAdmin: Boolean
-
   },
   methods: {
-
   },
   mounted(){
         const axios = require('axios');
@@ -67,9 +65,7 @@ export default {
         }else{
           this.isAdmin = false;
         }
-
   }
  
 };
-
 </script>

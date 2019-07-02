@@ -10,7 +10,6 @@
         <AllPost isAdmin />
       </div>
     </div>
-
     <a>end Home Page</a>
   </div>
 

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+
 import Menu from '@/views/Menu.vue';
     export default {
         name: 'App',
@@ -32,6 +33,18 @@ import Menu from '@/views/Menu.vue';
             // if(!this.authenticated) {
             //     this.$router.replace({ name: "login" });
             // }
+            
+            // let socket = io();
+
+            // socket.on('notification', function(msg){
+            //     console.log(msg);
+
+            // });
+        },
+        sockets: {
+            notification(msg) {
+                console.log(msg);
+            }
         },
         methods: {
             setAuthenticated(status) {

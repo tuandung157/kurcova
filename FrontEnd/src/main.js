@@ -1,10 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import VueSession from 'vue-session'
-import VueCookies from 'vue-cookies'
+import VueSession from 'vue-session';
+import VueCookies from 'vue-cookies';
+import VueSocketio from 'vue-socket.io-extended';
+import io from 'socket.io-client';
 
+Vue.use(VueSocketio, io('http://localhost:8888/'));
 Vue.prototype.$restBaseUrl = 'http://localhost:8080';
+
 
 Vue.config.productionTip = false;
 var options = {
@@ -17,3 +21,5 @@ let app = new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
+
+

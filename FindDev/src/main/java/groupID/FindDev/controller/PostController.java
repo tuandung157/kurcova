@@ -13,6 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +29,12 @@ public class PostController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RabbitTemplate template;
+
+    @Autowired
+    private FanoutExchange fanout;
 
     @GetMapping("/posts/page")
     public Page<Post> getPostsPage(Pageable pageable){
@@ -41,7 +51,8 @@ public class PostController {
 
     @PostMapping("/posts/{userId}")
     public Post createPost(@PathVariable Integer userId,@RequestBody Post post){
-        System.out.println(userId);
+        System.out.println(post.getPostName());
+        template.convertAndSend(fanout.getName(),"", post.getPostName());
         return userRepository.findById(userId.longValue())
                 .map(user ->{
                     post.setUserId(user);

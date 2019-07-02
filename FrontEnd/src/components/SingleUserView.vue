@@ -44,7 +44,6 @@
 
 <script>
 // @ is an alias to /src
-
 export default {
   name: "SingleUserView",
   data () {
@@ -60,5 +59,4 @@ export default {
   }
  
 };
-
 </script>
