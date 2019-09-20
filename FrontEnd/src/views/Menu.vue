@@ -8,6 +8,7 @@
     <ul class="app-bar-menu">
       <li><router-link to="/home">Home</router-link></li>
       <li><router-link to="/about">About</router-link></li>
+      <!-- <li><button class="button" onclick="showNotify();">Notify Me</button></li> -->
     </ul>
     
     <ul class="app-bar-menu ml-auto">
@@ -55,6 +56,9 @@ export default {
     login: function() {
       this.$router.push({name: 'login'});
       // console.log(this.$session.get('user'));
+    },
+    showNotify: function(){
+        Metro.notify.create("This is a notify", "Title", {});
     }
   }
  

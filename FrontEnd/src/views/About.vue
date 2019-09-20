@@ -1,7 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <h2>This is an about page but writed in h2</h2>
-    <span>hello with span</span>
+    <div class="row">
+    	<div class="cell-4">
+        <a href='https://se.ifmo.ru'>
+          <img alt="Vue logo" src="../assets/logo.png" /></a> 
+      	</div>
+    	<div class="cell-4">
+    		<div><h2>About us</h2></div>
+    		<div><h3>We are students from ITMO</h3></div>
+    	</div>
+    </div>
   </div>
 </template>

@@ -16,9 +16,9 @@
         <button class="button primary" v-on:click="addPost">Add post</button>
 
     </div>
-    <div class="d-flex flex-justify-end pt-6">
+<!--     <div class="d-flex flex-justify-end pt-6">
         <router-link to="home">Home</router-link>
-    </div>
+    </div> -->
     <!-- <input type="text" placeholder="UserId" v-model="userId" /> -->
   </form>
 </template>
@@ -65,8 +65,8 @@ export default {
             this.posts = response.data;
           });
         }
-
-
+    this.$router.push({name: 'home'});
+    // this.$router.go();
     }
   }
  

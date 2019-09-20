@@ -6,9 +6,10 @@
               <p class="d-none">{{isAdmin}}</p>
               <div class="row"  v-for="post in posts" >
                 <div class="cell colspan-10">
+                  <router-link :to="{name: 'postDetail', params: { id: post.postId }}">
                   <SinglePostView :postData="post">
                   </SinglePostView>
-                <router-link :to="{name: 'postDetail', params: { id: post.postId }}">    see more post</router-link>
+                  </router-link>
                   <br/>
                 </div>
                 <div class="cell colspan-2 d-flex flex-align-center" v-if="isAdmin" >

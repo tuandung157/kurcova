@@ -2,7 +2,8 @@
   <div class="grid home">
     <div class="row flex-justify-center">
       <div class="cell-2">
-        <img alt="Vue logo" src="../assets/logo.png" />
+        <a href='https://se.ifmo.ru'>
+          <img alt="Vue logo" src="../assets/logo.png" /></a> 
       </div>
     </div>
     <div class="row">
@@ -32,8 +33,8 @@ export default {
   components: {
   AllPost,
   }, mounted(){
+    
   }
  
 };
-
 </script>
