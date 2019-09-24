@@ -8,7 +8,8 @@
     </div>
     <div class="row">
       <div class="cell">
-        <AllPost isAdmin />
+        <AllPost isAdmin />  
+              
       </div>
     </div>
     <a>end Home Page</a>

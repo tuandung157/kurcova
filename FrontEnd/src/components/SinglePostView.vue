@@ -1,21 +1,32 @@
 <template>
-  <div class="card" v-if="postData">
-    <div class="card-header">
-      {{ postData.title }}
-      
+  <div class="card fg-black " v-if="postData">
+    <div class="card-header fg-white bg-cyan" >
+      <div class="name">name user</div>
+      <div class="date"> Posted on {{ postData.createdAt }}</div>  
+      </div>
+    <div class="card-content p-2 m-5">
+        {{ postData.title }}
     </div>
     <div class="card-content m-5">
-      
       {{ postData.content }}
 
     </div>
-    <div class="card-footer">
-      <p class="fg-gray mb-4">Posted on {{ postData.createdAt }}</p>
-    </div>
-<!--     <div class="card-footer">
-      Footer
+    <!-- so like vs so comment -->
+    <!-- <div class="card-content fg-gray p-2">
+        <span><small>Likes: </small>112</span>
+        <span><small>Comments: </small>43</span>
     </div> -->
-    
+    <!-- button for like  -->
+    <!-- <div class="card-footer">
+        <button class="flat-button mif-thumbs-up mif-2x"></button>
+        <button class="flat-button mif-tag mif-2x"></button>
+        <button class="flat-button mif-share mif-2x"></button>
+    </div> -->
+    <div class="card-footer">
+      <router-link  :to="{name: 'postDetail', params: { id: postData.postId }}">
+          <button class="button secondary "> see more</button>
+      </router-link>
+    </div>
 </div>
 </template>
 

@@ -5,7 +5,7 @@
     <div class="grid">
         <div class="row"> <a>....</a></div>
         <div class="row"> <a>....</a></div>
-        <div class="row"> <a>^</a></div>
+        <!-- notification notify -->
         <div class="row">      
             <div class="cell-2 offset-10">
                     <notifications  group="foo" 

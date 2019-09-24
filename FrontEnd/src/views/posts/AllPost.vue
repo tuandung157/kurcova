@@ -4,26 +4,45 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
-              <div class="row"  v-for="post in posts" >
-                <div class="cell colspan-10">
-                  <router-link :to="{name: 'postDetail', params: { id: post.postId }}">
+
+
+              <!-- all post created -->
+              <ul id="group-card" data-role="list" class="unstyled-list row flex-justify-center mt-4">
+              <li class="cell-sm-6 cell-md-4"  v-for="post in posts" >
+                
+
+                  <!-- single post -->
                   <SinglePostView :postData="post">
                   </SinglePostView>
-                  </router-link>
-                  <br/>
-                </div>
+                               
+                
+                <!-- isAdmin -->
                 <div class="cell colspan-2 d-flex flex-align-center" v-if="isAdmin" >
-                    <router-link :to="{name: 'editPost', params: { userId : post.userId.userId, postData: post}}" class="p-5">Edit</router-link>
-                    <!-- setup userId -->
-                    <router-link :to="{name: 'deletePost', params: { userId : 1, postId: post.postId}}" class="p-5">Delete</router-link>
+                  <!-- button edit -->
+                    <router-link :to="{name: 'editPost', params: { userId : post.userId.userId, postData: post}}" class="p-5">
+                      <button class="button warning">Edit</button>
+                    </router-link>
+                  <!-- button delete -->  
+                    <router-link :to="{name: 'deletePost', params: { userId : 1, postId: post.postId}}" class="p-5">
+                    <button class="button alert">Delete</button>
+                  </router-link>
                 </div>
-              </div>
-
+              </li>
+              </ul>  
               <div class="row"  v-for="postElement in posts" v-else>
                 <div class="cell colspan-12">
                   <SinglePostView :postData="postElement"/>
                 </div>
               </div>
+
+              <!-- pagination page -->
+              <div class="overflow-auto">
+                <b-pagination>
+                  
+                </b-pagination>
+                
+              </div>
+
             </div>  
           </div>
         </div>
@@ -38,7 +57,9 @@ export default {
   data() {
     return {      
     posts : null,
-    checkUserId : null
+    checkUserId : null,
+    perPage: 3,
+    currentPage: 1
     }
   },
   components: {

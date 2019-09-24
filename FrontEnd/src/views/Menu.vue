@@ -10,6 +10,7 @@
       <li><router-link to="/about">About</router-link></li>
       <!-- <li><button class="button" onclick="showNotify();">Notify Me</button></li> -->
     </ul>
+
     
     <ul class="app-bar-menu ml-auto">
       <li v-if="authenticated">
