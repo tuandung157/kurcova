@@ -9,7 +9,7 @@
     <div class="row">
       <div class="cell">
         <AllPost isAdmin />  
-      <!-- test pagination         -->
+      <!-- test pagination -->
       </div>
       <div>
         

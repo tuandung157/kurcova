@@ -4,30 +4,26 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
-
-              <button class="button m-1" v-on:click="sortList('post-name','asc')">Price <span class="mif-arrow-up"></span></button>
+              <input type="text" v-model= "search" placeholder="search Posts" />
               <!-- all post created -->
               <ul id="groupCard" 
                   data-role="list"  
                   data-cls-list="unstyled-list row flex-justify-center mt-4"
                   data-cls-list-item="cell-sm-6 cell-md-4"
+                  data-sort-class="postName"
+                  data-sort-dir="desc"
                   showPagination="true"
+                  data-pagination="true"
                   >
-                <li class="cell-sm-6 cell-md-4"  v-for="post in posts" >
+                <li class="cell-sm-6 cell-md-4"  v-for="post in filteredPosts" >
                 
-                  <!-- single post  -->
-                  <div>
+
+                  <!-- single post -->
                   <SinglePostView :postData="post">
                   </SinglePostView>
-                  </div>
                   <figure class="text-center">
                   <figcaption class="postName"> {{post.postName}}</figcaption>
-                  </figure> 
-
-
-                  <!-- test post -->
-
-
+                  </figure>
 
 
                 <!-- isAdmin -->
@@ -45,12 +41,14 @@
 
               </li>
               </ul>  
-
               <div class="row"  v-for="postElement in posts" v-else>
                 <div class="cell colspan-12">
                   <SinglePostView :postData="postElement"/>
                 </div>
               </div>
+
+              <!-- pagination page -->
+
 
             </div>  
           </div>
@@ -65,8 +63,9 @@ export default {
   name: "Posts",
   data() {
     return {      
-    posts : null,
-    checkUserId : null
+    posts : [],
+    checkUserId : null,
+    search:''
     }
   },
   components: {
@@ -76,9 +75,13 @@ export default {
     isAdmin: Boolean
   },
   methods: {
-    sortList: function (col, dir) {
-    $('#paintings').data('list').sorting(col,dir,true);
-    // this.$refs.groupCard.data('list').sorting(col,dir,true);
+
+  },
+  computed: {
+    filteredPosts:function(){
+      return this.posts.filter((post) =>{
+        return post.title.match(this.search)
+      })
     }
   },
   mounted(){
