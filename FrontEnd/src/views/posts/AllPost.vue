@@ -11,21 +11,23 @@
                   data-role="list"  
                   data-cls-list="unstyled-list row flex-justify-center mt-4"
                   data-cls-list-item="cell-sm-6 cell-md-4"
-                  data-sort-class="postName"
-                  data-sort-dir="desc"
                   showPagination="true"
-                  data-pagination="true"
-                  data-show-search="true"
                   >
                 <li class="cell-sm-6 cell-md-4"  v-for="post in posts" >
                 
-
-                  <!-- single post -->
+                  <!-- single post  -->
+                  <div>
                   <SinglePostView :postData="post">
                   </SinglePostView>
+                  </div>
                   <figure class="text-center">
                   <figcaption class="postName"> {{post.postName}}</figcaption>
-                  </figure>
+                  </figure> 
+
+
+                  <!-- test post -->
+
+
 
 
                 <!-- isAdmin -->
@@ -43,18 +45,11 @@
 
               </li>
               </ul>  
+
               <div class="row"  v-for="postElement in posts" v-else>
                 <div class="cell colspan-12">
                   <SinglePostView :postData="postElement"/>
                 </div>
-              </div>
-
-              <!-- pagination page -->
-              <div class="overflow-auto">
-                <b-pagination>
-                  
-                </b-pagination>
-                
               </div>
 
             </div>  
@@ -82,8 +77,8 @@ export default {
   },
   methods: {
     sortList: function (col, dir) {
-    // $(#groupCard).data('list').sorting(col,dir,true);
-    this.$refs.groupCard.data('list').sorting(col,dir,true);
+    $('#paintings').data('list').sorting(col,dir,true);
+    // this.$refs.groupCard.data('list').sorting(col,dir,true);
     }
   },
   mounted(){
