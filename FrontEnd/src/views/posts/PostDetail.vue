@@ -1,7 +1,13 @@
 <template>
   <div>
+    <div>
     <SinglePostView :postData="post"/>
-    <!-- <div>{{postData}}</div> -->
+    </div>
+    <div  data-role="panel"
+          data-title-caption="some description"
+          data-collapsible="true">
+          {{post}}</div>
+
     <AllComment v-if="postId" :postId="postId" />
     <AddComment :postId="postId"/>
   </div>
@@ -31,7 +37,6 @@ export default {
   props: {
   },
   methods: {
-
   },
   mounted(){
         const axios = require('axios');

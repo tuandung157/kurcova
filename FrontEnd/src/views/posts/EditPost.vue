@@ -1,17 +1,23 @@
 <template>
   <form >
-    <input type="text" placeholder="postName" v-model="postData.postName" />
-    <input type="text" placeholder="UserId" v-model="userId" />
-    <input type="text" placeholder="content" v-model="postData.content" />
-    <input type="text" placeholder="title" v-model="postData.title" />
-    <input type="button" value="accept" v-on:click="editPost">
-    
+    <div class="form-group">
+        <label>Post name</label>
+        <input type="text" placeholder="post Name" v-model="postData.postName" />
+    </div>
+    <div class="form-group">
+        <label>Post title</label>
+        <input type="text" placeholder="title" v-model="postData.title" />
+    </div>
+    <div class="form-group">
+        <label>Content</label>
+        <textarea data-role="textarea" placeholder="content" v-model="postData.content"></textarea>
+    </div>
+    <div class="d-flex flex-justify-end pt-5">
+        <button class="button primary" value="accept" v-on:click="editPost">Edit post</button>
+
+    </div>
   </form>
-  <<!-- div>
-  <router-link to="/home">
-      <input type"button" value="cancel">
-  </router-link>
-  </div -->>
+
 </template>
 
 <script>
@@ -36,7 +42,7 @@ export default {
         .then(response => {
             // handle success
             console.log(response.data);
-            this.posts = response.data;
+            this.post = response.data;
           });
         this.$router.push({name: 'home'});
 

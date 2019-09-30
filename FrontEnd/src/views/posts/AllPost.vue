@@ -16,8 +16,7 @@
                   data-pagination="true"
                   >
                 <li class="cell-sm-6 cell-md-4"  v-for="post in filteredPosts" >
-                
-
+  
                   <!-- single post -->
                   <SinglePostView :postData="post">
                   </SinglePostView>
@@ -37,11 +36,11 @@
 
               </li>
               </ul>  
-              <div class="row"  v-for="postElement in posts" v-else>
+              <!-- <div class="row"  v-for="postElement in posts" v-else>
                 <div class="cell colspan-12">
                   <SinglePostView :postData="postElement"/>
                 </div>
-              </div>
+              </div> -->
 
               <!-- pagination page -->
 
@@ -87,7 +86,7 @@ export default {
         axios.get('http://localhost:8080/posts/')
         .then(response => {
             // handle success
-            console.log(response.data);
+            // console.log(response.data);
             this.posts = response.data;
             // console.log(this.$session.getAll().user.userId);
             

@@ -69,6 +69,17 @@ export default new Router({
       props: true
     },
     {
+      //get all users
+      path: "/user/getall",
+      name: "allUser",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import("./views/user/getAllUser.vue"),
+      props: true
+    },
+    {
       path: "/posts/:id",
       name: "postDetail",
       // route level code-splitting
@@ -102,6 +113,13 @@ export default new Router({
       name: "user",
       component: () =>
       import("./views/user/getUser.vue"),
+      props:true
+    },
+    {
+      path: "/user/edit/:id",
+      name: "editUser",
+      component: () =>
+      import("./views/user/editUser.vue"),
       props:true
     }
   ]

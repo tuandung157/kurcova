@@ -8,6 +8,7 @@
     <ul class="app-bar-menu">
       <li><router-link to="/home">Home</router-link></li>
       <li><router-link to="/about">About</router-link></li>
+      <li><router-link to="/user/getall">List User</router-link></li>
       <!-- <li><button class="button" onclick="showNotify();">Notify Me</button></li> -->
     </ul>
 

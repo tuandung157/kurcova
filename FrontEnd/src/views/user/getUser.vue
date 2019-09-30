@@ -1,10 +1,19 @@
 <template>
 	<div>
+    <div>
 		<SingleUserView :userData="user"></SingleUserView>
+    </div>
+    <div  data-role="panel"
+          data-title-caption="some description"
+          data-collapsible="true"
+          >{{user}}</div>
+    <div>
+      <router-link :to="{name: 'editUser', param:{userId :this.userId,userData: user}}">
+        <button class="button warning">Edit</button>
+      </router-link>
+    </div>      
 	</div>
-
 </template>
-
 
 <script>
 import SingleUserView from '@/components/SingleUserView.vue';
@@ -21,8 +30,6 @@ export default {
   	SingleUserView
   },   
   props: {
-  	
-  	userData :Object
   },
   methods: {
   },

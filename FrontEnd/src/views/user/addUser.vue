@@ -1,7 +1,7 @@
 <template>
   <form >
     <input type="text" data-role="input" placeholder="Email" data-prepend="your Email: "            v-model="userData.userEmail" required />
-    <input type="text" data-role="input" placeholder="password" data-prepend="password: "           v-model="userData.password"  required />
+    <input type="text" data-role="password" placeholder="password" data-prepend="password: "           v-model="userData.password"  minlength="8" required />
     <input type="text" data-role="input" placeholder="(+7) xxx xxx" data-prepend="your telephone: " v-model="userData.telephone" required />
     <input type="text" data-role="input" placeholder="text" data-prepend="Bio: "                    v-model="userData.text"      required />
     <input type="text" data-role="input" placeholder="userName" data-prepend="User name: "          v-model="userData.username"  required />
