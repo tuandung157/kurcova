@@ -58,6 +58,7 @@ public class CommentController {
     public Comment addComment(@PathVariable Long postId,
                            @PathVariable Long userId,
                            @Valid @RequestBody Comment comment){
+        System.out.println(comment.getContent());
         return postRepository.findById(postId)
                 .map(post ->{
                     userRepository.findById(userId)

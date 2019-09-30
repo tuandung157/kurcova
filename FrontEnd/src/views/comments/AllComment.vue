@@ -1,10 +1,15 @@
 <template>
-  <ul >
-    <li v-for="comment in comments">
-      <SingleCommentView :commentData="comment"/>
+  <div>
+    <ul >
+      <li v-for="comment in comments">
+        <SingleCommentView :commentData="comment"/>
+      </li>
+    </ul>
+  </div>
+  <div>
+    
+  </div>
 
-    </li>
-  </ul>
 </template>
 
 <script>

@@ -1,14 +1,20 @@
 <template>
   <div>
     <SinglePostView :postData="post"/>
+    <!-- <div>{{postData}}</div> -->
     <AllComment v-if="postId" :postId="postId" />
+    <AddComment :postId="postId"/>
+  </div>
+  <div>
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import SinglePostView from '@/components/SinglePostView.vue';
-import AllComment from '@/views/comments/AllComment.vue'
+import AllComment from '@/views/comments/AllComment.vue';
+import AddComment from '@/views/comments/AddComment.vue';
 export default {
   name: "postDetail",
   data() {
@@ -19,10 +25,10 @@ export default {
   },
   components: {
     SinglePostView,
-    AllComment
+    AllComment,
+    AddComment
   },   
   props: {
-   
   },
   methods: {
 

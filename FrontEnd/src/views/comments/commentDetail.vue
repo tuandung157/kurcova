@@ -30,7 +30,7 @@ export default {
         const axios = require('axios');
         this.postId = Number.parseInt(this.id);
         // Make a request for a user with a given ID
-        axios.get('http://localhost:8080/posts/'+this.postId)
+        axios.get('http://localhost:8080/comments'+this.postId)
         .then(response => {
             this.post = response.data;
           });

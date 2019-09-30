@@ -44,6 +44,8 @@ public class PostController {
     public List<Post> getPosts(){
         return postRepository.findAll();
     }
+
+
     @GetMapping("/posts/{postId}")
     public Optional<Post> getPostById(@PathVariable Long postId){
         return postRepository.findById(postId);

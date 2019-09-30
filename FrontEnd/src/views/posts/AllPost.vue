@@ -4,7 +4,7 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
-              <input type="text" v-model= "search" placeholder="search Posts" />
+              <input type="text" v-model= "search" placeholder="Find the language you want" />
               <!-- all post created -->
               <ul id="groupCard" 
                   data-role="list"  
@@ -21,10 +21,6 @@
                   <!-- single post -->
                   <SinglePostView :postData="post">
                   </SinglePostView>
-                  <figure class="text-center">
-                  <figcaption class="postName"> {{post.postName}}</figcaption>
-                  </figure>
-
 
                 <!-- isAdmin -->
                   <div class="cell colspan-2 d-flex flex-align-center" v-if="isAdmin" >
