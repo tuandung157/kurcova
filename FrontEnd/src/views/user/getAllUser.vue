@@ -2,8 +2,9 @@
   <div>
     <div>ALL USER</div>
   	<div>
-      <ul>
-        <li v-for="user in users">
+      <input type="text" v-model= "search" data-history ="true" placeholder="find user" />
+      <ul data-role="list" >
+        <li v-for="user in filteredUser">
   		    <SingleUserView :userData="user" ></SingleUserView>
         </li>
       </ul>
@@ -21,7 +22,8 @@ export default {
   data() {
     return {      
       users : [],
-      checkUserId : null
+      checkUserId : null,
+      search:''
     }
   },
   components: {
@@ -30,6 +32,14 @@ export default {
   props: {
   },
   methods: {
+  },
+  computed: {
+    filteredUser:function(){
+      return this.users.filter((user) =>{
+        return user.username.match(this.search)
+
+      })
+    }    
   },
   mounted(){
         const axios = require('axios');

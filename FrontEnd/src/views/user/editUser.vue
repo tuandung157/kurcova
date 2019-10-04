@@ -1,31 +1,28 @@
 <template>
-  <form >
-    <div>
-      <div class="form-group">
-          <label>change password</label>
-          <input type="password" placeholder="password" v-model="userData.password" />
-      </div>
-      <div class="form-group">
-          <label>user telephone</label>
-          <input type="text" placeholder="title" v-model="userData.telephone" required/>
-      </div>
-      <div class="form-group">
-          <label>your Bio</label>
-          <input type="text" data-role="input" placeholder="text" data-prepend="User name: "          v-model="userData.text"  required />    </div>
-      <div class="d-flex flex-justify-end pt-5">
-          <button class="button primary" value="accept" v-on:click="editUser">Edit user</button>
+  <div>{{userData}}</div>
+  <div>
+  <!-- <form >
 
-    </div>
+    <input type="text" data-role="input" placeholder="Email" data-prepend="your Email: "            v-model="userData.userEmail" required >
+
+    <input type="password" data-role="password" placeholder="password" data-prepend="password: "  v-model="userData.password" required >
+
+    <input type="text" data-role="input" placeholder="(+7) xxx xxx" data-prepend="your telephone: " v-model="userData.telephone" required >
+
+    <input type="text" data-role="input" placeholder="text" data-prepend="Bio: "                    v-model="userData.text"      required >
+
+    <input type="text" data-role="input" placeholder="userName" data-prepend="User name: "          v-model="userData.username"  required >
+
+    <input type="button" value="addUser- please dont click"  v-on:click="addUser" />
+  </form> -->
   </div>
-  </form>
-
 </template>
 
 <script>
 // @ is an alias to /src
 
 export default {
-  name: "EditUser",
+  name: "editUser",
   data () {
     return {}
   },

@@ -4,7 +4,7 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
-              <input type="text" v-model= "search" placeholder="Find the language you want" />
+              <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
               <!-- all post created -->
               <ul id="groupCard" 
                   data-role="list"  
@@ -76,6 +76,7 @@ export default {
     filteredPosts:function(){
       return this.posts.filter((post) =>{
         return post.title.match(this.search)
+
       })
     }
   },
