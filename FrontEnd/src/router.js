@@ -121,6 +121,13 @@ export default new Router({
       component: () =>
       import("./views/user/editUser.vue"),
       props:true
+    },
+    {
+      path: "/postSearch/:string",
+      name: "postSearch",
+      component: () =>
+      import("./views/posts/postSearch.vue"),
+      props:true
     }
   ]
 });

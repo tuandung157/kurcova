@@ -3,7 +3,7 @@
     <div>ALL USER</div>
   	<div>
       <input type="text" v-model= "search" data-history ="true" placeholder="find user" />
-      <ul data-role="list" >
+      <ul>
         <li v-for="user in filteredUser">
   		    <SingleUserView :userData="user" ></SingleUserView>
         </li>
@@ -37,7 +37,6 @@ export default {
     filteredUser:function(){
       return this.users.filter((user) =>{
         return user.username.match(this.search)
-
       })
     }    
   },

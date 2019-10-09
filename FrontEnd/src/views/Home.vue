@@ -9,7 +9,6 @@
     <div class="row">
       <div class="cell">
         <AllPost isAdmin />  
-        
       <!-- test pagination -->
       </div>
       <div>
@@ -25,6 +24,7 @@
 // @ is an alias to /src
 import AllPost from "@/views/posts/AllPost.vue";
 import AllComment from "@/views/comments/AllComment.vue";
+import PostSearch from "@/views/posts/postSearch.vue"
 import AddComment from "@/views/comments/AddComment.vue";
 import AllProject from "@/views/projects/AllProject.vue";
 import AllTask from "@/views/tasks/AllTask.vue";
@@ -37,6 +37,7 @@ export default {
   },
   components: {
   AllPost,
+  PostSearch
   }, mounted(){
     
   }

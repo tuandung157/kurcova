@@ -5,6 +5,12 @@
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
               <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
+
+              <!-- test search -->
+              <router-link :to="{name: 'postSearch',params:{searchParent :search}}">
+                <button class="primary">SEARCH</button>
+              </router-link>
+
               <!-- all post created -->
               <ul id="groupCard" 
                   data-role="list"  

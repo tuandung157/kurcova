@@ -6,7 +6,7 @@
     <div  data-role="panel"
           data-title-caption="some description"
           data-collapsible="true">
-          {{post}}</div>
+          {{post.content}}</div>
 
     <AllComment v-if="postId" :postId="postId" />
     <AddComment :postId="postId"/>

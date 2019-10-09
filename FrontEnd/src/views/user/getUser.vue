@@ -8,9 +8,9 @@
           data-collapsible="true"
           >{{user}}</div>
     <div>
-      <router-link :to="{name: 'editUser', param: {userData: user}}" >
+<!--       <router-link :to="{name: 'editUser', param: {userData: user}}" >
         <button class="button warning">Edit</button>
-      </router-link>
+      </router-link> -->
     </div>      
 	</div>
 </template>
