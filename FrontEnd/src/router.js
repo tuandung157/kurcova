@@ -90,15 +90,6 @@ export default new Router({
       props: true
     },
     {
-      path: "/message/:id1/:id2",
-      name: "message",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import("./views/messages/GetConversation.vue")
-    },
-        {
       path: "/posts/detail/:post_id/project/:project_id",
       name: "project",
       // route level code-splitting
@@ -128,6 +119,18 @@ export default new Router({
       component: () =>
       import("./views/posts/postSearch.vue"),
       props:true
+    },{
+      path: "/message/conversation/:id",
+      name: "conversation",
+      component: () =>
+      import("./views/messages/GetConversation.vue"),
+      props:true
+    },{
+      path: "/message/add",
+      name: "addMessage",
+      component: () =>
+        import("./views/messages/AddMessage.vue"),
+      props: true     
     }
   ]
 });

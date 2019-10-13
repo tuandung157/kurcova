@@ -20,7 +20,7 @@ export default {
   data () {
     return {
     comments : null 
-      }
+  }
   },
   components: {
     SingleCommentView

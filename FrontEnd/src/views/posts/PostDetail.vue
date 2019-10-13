@@ -6,7 +6,7 @@
     <div  data-role="panel"
           data-title-caption="some description"
           data-collapsible="true">
-          {{post.content}}</div>
+          {{post}}</div>
 
     <AllComment v-if="postId" :postId="postId" />
     <AddComment :postId="postId"/>
@@ -40,6 +40,7 @@ export default {
   },
   mounted(){
         const axios = require('axios');
+        console.log(Number.parseInt(this.$route.params.id));
         this.postId = Number.parseInt(this.$route.params.id);
         // Make a request for a user with a given ID
         axios.get('http://localhost:8080/posts/'+this.postId)

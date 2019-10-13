@@ -35,15 +35,6 @@
 
               </li>
               </ul>  
-              <!-- <div class="row"  v-for="postElement in posts" v-else>
-                <div class="cell colspan-12">
-                  <SinglePostView :postData="postElement"/>
-                </div>
-              </div> -->
-
-              <!-- pagination page -->
-
-
             </div>  
           </div>
         </div>

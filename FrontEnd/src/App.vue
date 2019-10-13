@@ -10,7 +10,7 @@
             <div class="cell-2 offset-10">
                     <notifications  group="foo" 
                                 position="bottom right"/>
-                <button class="action-button" v-on:click="showNotify()">Notify</button>
+                <!-- <button class="action-button" v-on:click="showNotify()">Notify</button> -->
             </div> 
         </div>
 
@@ -20,7 +20,6 @@
             </div>
 
         </div>
-
     </div>
 
   </div>
@@ -56,6 +55,13 @@ import Menu from '@/views/Menu.vue';
                 console.log(msg);
                 this.socketMessage = msg ;
                 this.statusNewPost = 1;
+                this.$notify({
+                group: 'foo',
+                type:'warn',
+                duration: '1000',
+                title: 'you have a new post is...',
+                text: this.socketMessage
+            })
             }
         },
         methods: {
@@ -69,13 +75,6 @@ import Menu from '@/views/Menu.vue';
                 this.menuKey += 1;  
             },
             showNotify(socketMessage) {
-                this.$notify({
-                group: 'foo',
-                type:'warn',
-                duration: '1000',
-                title: 'you have a new post is...',
-                text: this.socketMessage
-            })
                 this.statusNewPost = 0;
             }
         }

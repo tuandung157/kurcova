@@ -16,12 +16,14 @@
       </div>
     </div>
     <a>end Home Page</a>
+
   </div>
 
 </template>
 
 <script>
 // @ is an alias to /src
+import GetConversation from "@/views/messages/GetConversation.vue";
 import AllPost from "@/views/posts/AllPost.vue";
 import AllComment from "@/views/comments/AllComment.vue";
 import PostSearch from "@/views/posts/postSearch.vue"
@@ -33,6 +35,7 @@ export default {
   name: "home",
   data () {
   	return {
+
   	}
   },
   components: {

@@ -24,6 +24,10 @@
       <router-link :to="{name:'user', params:{id : userData.userId}}">
         <button class="button secondary">more</button>
       </router-link>
+
+      <router-link :to="{name: 'conversation', params :{id: userData.userId }}">
+        <button class="button warring"> send mail </button>
+      </router-link>
     </div>
 
 
