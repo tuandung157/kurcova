@@ -4,7 +4,9 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
+              <div>{{this.searchParent}}</div>
               <!-- all post created -->
+              <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
               <ul id="groupCard" 
                   data-role="list"  
                   data-cls-list="unstyled-list row flex-justify-center mt-4"
@@ -15,7 +17,7 @@
                   data-pagination="true"
                   >
                 <li class="cell-sm-6 cell-md-4"  v-for="post in filteredPosts" >
-  
+      
                   <!-- single post -->
                   <SinglePostView :postData="post">
                   </SinglePostView>
@@ -45,7 +47,7 @@
 // @ is an alias to /src
 import SinglePostView from '@/components/SinglePostView.vue';
 export default {
-  name: "Posts",
+  name: "postSearch",
   data() {
     return {      
     posts : [],

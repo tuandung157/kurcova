@@ -46,6 +46,9 @@ export default {
   components: {
   },
   computed: {
+  },
+  method: {
+  
   },   
   props: {
        postData: Object

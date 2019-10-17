@@ -3,6 +3,7 @@
           <div class="title">All Post</div>
           <div>
             <div class="grid">
+              <!-- <div>{{this.search}}</div> -->
               <p class="d-none">{{isAdmin}}</p>
               <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
 
@@ -76,7 +77,22 @@ export default {
     isAdmin: Boolean
   },
   methods: {
-
+    getAllPost: function(){
+      const axios = require('axios');
+      axios.get('http://localhost:8080/posts/')
+        .then(response => {
+            // handle success
+            // console.log(response.data);
+            this.posts = response.data;
+            // console.log(this.$session.getAll().user.userId);
+            
+          });
+    },
+    intervalData:function(){
+      setInterval(() => {
+        this.getAllPost();
+      },1000);
+    }
   },
   computed: {
     filteredPosts:function(){
@@ -87,9 +103,10 @@ export default {
     }
   },
   mounted(){
-        const axios = require('axios');
+        // const axios = require('axios');
         // Make a request for a user with a given ID
         //axios.get(this.$restBaseUrl+'/posts/')
+        /*
         axios.get('http://localhost:8080/posts/')
         .then(response => {
             // handle success
@@ -97,8 +114,9 @@ export default {
             this.posts = response.data;
             // console.log(this.$session.getAll().user.userId);
             
-          });
-
+          });*/
+        this.getAllPost();
+        this.intervalData();
         this.isAdmin = false;
         if(this.$session.getAll().user.userId == 1){
           this.isAdmin = true;
