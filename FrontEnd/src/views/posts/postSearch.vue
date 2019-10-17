@@ -7,6 +7,12 @@
               <div>{{this.searchParent}}</div>
               <!-- all post created -->
               <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
+
+              <!-- search button -->
+              <router-link :to="{name: 'postSearch',params:{searchParent :search}}">
+                <button class="primary">AddToSearchList</button>
+              </router-link>
+
               <ul id="groupCard" 
                   data-role="list"  
                   data-cls-list="unstyled-list row flex-justify-center mt-4"
