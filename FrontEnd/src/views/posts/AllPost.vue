@@ -5,11 +5,11 @@
             <div class="grid">
               <!-- <div>{{this.search}}</div> -->
               <p class="d-none">{{isAdmin}}</p>
-              <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
+              <input type="text" v-model= "search" data-role="input" data-history ="true" placeholder="Find the language you want" />
 
-              <!-- test search -->
-              <router-link :to="{name: 'postSearch',params:{searchParent :search}}">
-                <button class="primary">SEARCH</button>
+              <!-- button search -->
+              <router-link :to="{name: 'postSearch',params:{string :search,searchParent :search}}">
+                <button class="primary">search</button>
               </router-link>
 
               <!-- all post created -->
