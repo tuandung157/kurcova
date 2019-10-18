@@ -13,6 +13,8 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,12 +47,29 @@ public class MessController {
         if(!user2.isPresent()) {
             return null;
         }
-        return messRepository.findByUserFromAndUserTo(user1.get(),user2.get());
+        List<Mess> listMessUserFrom = messRepository.findByUserFromAndUserTo(user1.get(),user2.get());
+        List<Mess> listMessUserTo = messRepository.findByUserToAndUserFrom(user1.get(),user2.get());
+        listMessUserFrom.addAll(listMessUserTo);
+        //sort by created time
+
+        listMessUserFrom.sort((o1, o2) -> o1.getCreatedAt().compareTo(o2.getUpdatedAt()));
+        return listMessUserFrom;
     }
 
 
-    @PostMapping("/message")
-    public Mess createMessage(@Valid @RequestBody Mess mess){
+    @PostMapping("/message/{userId1}/{userId2}")
+    public Mess createMessage(@PathVariable Long userId1,@PathVariable Long userId2 ,@Valid @RequestBody Mess mess){
+
+        userRepository.findById(userId1)
+                .map(user -> {
+                    mess.setUserFrom(user);
+                    return messRepository.save(mess);
+                }).orElseThrow();
+        userRepository.findById(userId2)
+                .map(user -> {
+                    mess.setUserTo(user);
+                    return messRepository.save(mess);
+                }).orElseThrow();
         return messRepository.save(mess);
     }
 

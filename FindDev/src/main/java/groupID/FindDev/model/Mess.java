@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Table(name = "Mess")
 public class Mess extends AuditModel {
     @Id
+    @GeneratedValue
     private int messId;
     private String text;
     @ManyToOne
