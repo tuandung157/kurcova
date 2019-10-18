@@ -10,7 +10,6 @@ import Notifications from 'vue-notification';
 Vue.use(VueSocketio, io('http://localhost:8888/'));
 Vue.prototype.$restBaseUrl = 'http://localhost:8080';
 
-
 Vue.config.productionTip = false;
 var options = {
     persist: true

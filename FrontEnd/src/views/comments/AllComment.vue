@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul >
+    <ul style="list-style-type: none;">
       <li v-for="comment in comments">
         <SingleCommentView :commentData="comment"/>
       </li>
@@ -29,10 +29,8 @@ export default {
     postId : Number
   },
   methods: {
-
-  },
-  mounted(){
-        const axios = require('axios');
+    getAllComment:function(){
+      const axios = require('axios');
         // Make a request for a user with a given ID
         axios.get('http://localhost:8080/comments/post/'+this.postId)
         .then(response => {
@@ -40,6 +38,16 @@ export default {
             // console.log(response.data);
             this.comments = response.data;
           });
+    },
+    intervalData:function(){
+      setInterval(() => {
+        this.getAllComment();
+      },1000);
+    }
+  },
+  mounted(){
+    this.getAllComment();
+    this.intervalData();
   }
  
 };

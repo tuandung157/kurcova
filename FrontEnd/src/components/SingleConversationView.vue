@@ -1,9 +1,16 @@
 <template>
   <div>
-    <div>
-    {{conversationData.userFrom.username}}</div>
-    <div>
-    {{conversationData.text}}</div>
+  <div class="icon-box border bd-default">
+    <div class="content p-4">
+      <div class ="text-upper text-bold text-lead">
+      {{conversationData.userFrom.username}}
+      </div>
+      <div class="">
+      {{conversationData.text}}
+    </div>
+    </div>
+  </div>
+  <br>
   </div>
 </template>
 

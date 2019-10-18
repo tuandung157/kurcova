@@ -1,7 +1,7 @@
 <template>
   <div>{{userData}}</div>
   <div>
-  <!-- <form >
+  <form >
 
     <input type="text" data-role="input" placeholder="Email" data-prepend="your Email: "            v-model="userData.userEmail" required >
 
@@ -14,7 +14,7 @@
     <input type="text" data-role="input" placeholder="userName" data-prepend="User name: "          v-model="userData.username"  required >
 
     <input type="button" value="addUser- please dont click"  v-on:click="addUser" />
-  </form> -->
+  </form>
   </div>
 </template>
 

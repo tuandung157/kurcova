@@ -1,7 +1,7 @@
 <template>
 <div>
   <div>
-    <ul>
+    <ul style="list-style-type: none;">
       <li v-for="conversation in conversations">
         <!-- tung mess -->
         <SingleConversationView :conversationData="conversation"></SingleConversationView>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       conversations: [],
-      userToId : null,
+      userToId : '',
       stringUrl : ''
     }
   },
@@ -36,26 +36,35 @@ export default {
     userToId : Number
   },
   methods: {
-    update :function(){
+    getConversation:function(){
       const axios = require('axios');
-      axios.get(stringUrl)
+      // console.log(this.$route.params);
+      this.userToId = Number.parseInt(this.$route.params.id);
+      // Make a request for a user with a given ID
+      // $route.params.id1
+      axios.get('http://localhost:8080/message/'+this.$session.get('user').userId+'/'+this.userToId)
       .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           this.conversations = response.data;
-        });      
+        });
+    },
+    intervalData:function(val){
+      if(this.$route.name == "conversation" ){
+      var t = setInterval(() => {
+        this.getConversation();
+      },1000);}
+      else{
+        clearInterval(t);
+      }
     }
   },
+  watch: {
+    
+  },
   mounted(){
-    const axios = require('axios');
-    console.log(this.$route.params);
-    this.userToId = Number.parseInt(this.$route.params.id);
-    // Make a request for a user with a given ID
-    // $route.params.id1
-    axios.get('http://localhost:8080/message/'+this.$session.get('user').userId+'/'+this.userToId)
-    .then(response => {
-        console.log(response.data);
-        this.conversations = response.data;
-      });
+    
+    this.getConversation();
+    this.intervalData();
   }
  
 };

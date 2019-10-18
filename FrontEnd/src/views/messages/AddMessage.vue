@@ -36,9 +36,12 @@ export default {
         axios.post('http://localhost:8080/message/'+this.$session.get('user').userId + '/' + this.userToId, this.messData)
         .then(response => {
             // handle success
-            // console.log(response.data);
+            console.log(response.data);
             this.messages = response.data;
+            this.messData.text = "";
           });
+
+        
     }
   },
   mounted(){

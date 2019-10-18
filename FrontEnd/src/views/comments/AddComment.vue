@@ -35,6 +35,7 @@ export default {
             // handle success
             console.log(response.data);
             this.comments = response.data;
+            this.commentData.content ="";
           });
     }
   },
