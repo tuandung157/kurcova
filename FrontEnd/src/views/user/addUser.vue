@@ -46,7 +46,7 @@ export default {
             console.log(response.data);
             this.users = response.data;
           });
-
+        this.$router.push({name: 'login'});
 
 
     }

@@ -66,7 +66,6 @@ export default {
           });
         }
     this.$router.push({name: 'home'});
-    // this.$router.go();
     }
   }
  

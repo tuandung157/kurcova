@@ -43,17 +43,23 @@ public class UserController {
     }
 
     @PutMapping("/users/{userId}")
-    public User updateUser(@PathVariable Long userId, @Valid @RequestBody User userRequest){
-        return userRepository.findById(userId)
-                .map(user -> {
-                    user.setUsername(userRequest.getUsername());
-                    user.setEmail(userRequest.getEmail());
-                    user.setPassword(userRequest.getPassword());
-                    user.setTelephone(userRequest.getTelephone());
-                    user.setText(userRequest.getText());
-                    user.setLastLog(new Timestamp(date.getTime()));
-                    return userRepository.save(user);
-                }).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + userId));
+    public User updateUser(@PathVariable Long userId, @Valid @RequestBody User userRequest) {
+        User tmp = userRepository.findUserByUsername(userRequest.getUsername());
+        System.out.println(tmp.toString());
+        if (tmp != null) {
+            return null;
+        } else {
+            return userRepository.findById(userId)
+                    .map(user -> {
+                        user.setUsername(userRequest.getUsername());
+                        user.setEmail(userRequest.getEmail());
+                        user.setPassword(userRequest.getPassword());
+                        user.setTelephone(userRequest.getTelephone());
+                        user.setText(userRequest.getText());
+                        user.setLastLog(new Timestamp(date.getTime()));
+                        return userRepository.save(user);
+                    }).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + userId));
+        }
     }
 
     @DeleteMapping("/users/{userId}")

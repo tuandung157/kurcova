@@ -7,13 +7,13 @@
     <router-link :to="{name:'user', params:{id : postData.userId.userId}}">
       <div class="name">{{postData.userId.username}}</div>
     </router-link>
-      <div class="date"> Posted on {{ postData.createdAt }}</div>  
+      <div class="date"> Posted on {{ postData.createdAt.substring(0,10)+" "}}</div>  
       </div>
     <div class="card-content p-2 m-5">
-        {{ postData.postName }}
+       {{ postData.postName }}
     </div>
     <div class="card-content m-5">
-      {{ postData.title }}
+       {{ postData.title }}
     </div>
     <!-- so like vs so comment -->
     <!-- <div class="card-content fg-gray p-2">

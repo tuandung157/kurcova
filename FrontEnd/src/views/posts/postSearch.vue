@@ -4,9 +4,14 @@
           <div>
             <div class="grid">
               <p class="d-none">{{isAdmin}}</p>
-              <div>{{this.searchParent}}</div>
+<!--               <div>{{this.searchParent}}</div>
+              <div>{{this.search}}</div>
+ -->              
               <!-- all post created -->
+
               <input type="text" v-model= "search" data-history ="true" placeholder="Find the language you want" />
+              <!-- <p>test input</p>
+              <input type="text" v-model= "search" data-role="taginput" data-tag-trigger="32" data-history ="true" placeholder="Find the language you want" /> -->
 
               <!-- search button -->
               <router-link :to="{name: 'postSearch',params:{string :search,searchParent :search}}">
@@ -35,7 +40,7 @@
                 <label for="js">js</label>
                 <br>
 
-                <span> check box : {{checkbox}}</span>
+                <!-- <span> check box : {{checkbox}}</span> -->
               </div>
 
               <ul id="groupCard" 

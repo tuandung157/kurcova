@@ -3,7 +3,6 @@ package groupID.FindDev.repository;
 import groupID.FindDev.model.Group;
 import groupID.FindDev.model.Mess;
 import groupID.FindDev.model.User;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

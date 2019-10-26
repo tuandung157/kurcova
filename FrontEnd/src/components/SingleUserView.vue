@@ -6,7 +6,7 @@
         </div>
       <div class="name">user Name:</div>
       <router-link :to="{name:'user', params:{id : userData.userId}}">
-        <div class="name">{{ userData.username }}</div>
+        <div class="name">{{userData.username.substring(0,10)+" " }}</div>
       </router-link>
     </div>
     <div class="card-content p-2 m-5">email : {{ userData.email }}</div>
